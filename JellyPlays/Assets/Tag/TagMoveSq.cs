@@ -20,6 +20,7 @@ public class TagMoveSq : MonoBehaviour
 
     public void ClickSq(){
         int availableCell = TagStaticController.tagCells.CheckNearAvailability(numCell);
+     
         if (availableCell == -1) return;
 
         Vector2 pos = TagStaticController.tagCells.lPosNums[availableCell-1].transform.position;
@@ -29,5 +30,6 @@ public class TagMoveSq : MonoBehaviour
         TagStaticController.tagCells.lPosNums[numCell-1].GetComponent<TagNumCell>().isAvailable = true;
         numCell = availableCell;
 
+        TagStaticController.tagCells.CheckIsWin();
     }
 }

@@ -36,6 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Match3\Scripts\DBImages_Match3.cs" />
+     <Compile Include="Assets\Match3\Scripts\Image_Match3.cs" />
+     <Compile Include="Assets\Match3\Scripts\Item_Match3.cs" />
+     <Compile Include="Assets\Match3\Scripts\ItemsController_Match3.cs" />
+     <Compile Include="Assets\Match3\Scripts\Type_Match3.cs" />
      <Compile Include="Assets\Tag\TagCells.cs" />
      <Compile Include="Assets\Tag\TagController.cs" />
      <Compile Include="Assets\Tag\TagMoveSq.cs" />

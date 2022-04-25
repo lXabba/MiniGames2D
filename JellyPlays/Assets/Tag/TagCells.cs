@@ -53,11 +53,13 @@ public class TagCells : MonoBehaviour
                 numCell = availableCells[(int)Random.Range(0, 16)];
                 if (numCell != -1) availableCells[numCell] = -1;
             }
-
+            
+            
             lSqNums[i].transform.position = new Vector2(lPosNums[numCell].transform.position.x, lPosNums[numCell].transform.position.y);
+            
 
             lPosNums[numCell].GetComponent<TagNumCell>().isAvailable = false;
-            lSqNums[i].GetComponent<TagMoveSq>().numCell = numCell;
+            lSqNums[i].GetComponent<TagMoveSq>().numCell = numCell+1;
         }
     }
     private void Cells()
@@ -85,17 +87,31 @@ public class TagCells : MonoBehaviour
 
     public int CheckNearAvailability(int numCell)
     {
+        
         int availableCell = 0;
 
         for (int i = 0; i < lPosNums.Length; i++)
         {
             if (lPosNums[i].GetComponent<TagNumCell>().isAvailable) availableCell = lPosNums[i].GetComponent<TagNumCell>().number;
         }
-
+      
         if (numCell + 1 == availableCell || numCell - 1 == availableCell) return availableCell;
         if (numCell - 4 == availableCell || numCell + 4 == availableCell) return availableCell;
 
 
         return -1;
+    }
+
+    public void CheckIsWin(){
+        int checkWin = 0;
+        for (int i=0; i < lSqNums.Length; i++){
+            if (lSqNums[i].GetComponent<TagNumSq>().number == lSqNums[i].GetComponent<TagMoveSq>().numCell)
+            {
+                checkWin++;
+            }
+        }
+        
+        if (checkWin==15) print ("win!!!");
+        else print(checkWin);
     }
 }
